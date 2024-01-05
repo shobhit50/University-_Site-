@@ -2,16 +2,18 @@
 
 
 <html>
+
 <head>
-       <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admit Card</title>
     <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
 
 </head>
+
 <body>
 
-    <div class = "m-2">
+    <div class="m-2">
         <FORM>
             <div class="form-group d-flex justify-content-center">
                 <button class="btn btn-primary" onclick="printContent()">Print</button>
@@ -19,16 +21,17 @@
         </FORM>
     </div>
 
-    <div class="container p-2 mt-4 mb-4 printable-content" style="width: 21cm; border: 1px solid black; padding: 10px; height:297mm;" >
+    <div class="container p-2 mt-4 mb-4 printable-content"
+        style="width: 21cm; border: 1px solid black; padding: 10px; height:297mm;">
 
         <div class="row justify-content-center mt-4">
             <div class="col-2">
                 <img src="{% static 'assets/images/logo-01.png' %}" alt="" class="img-fluid ml-2">
             </div>
             <div class="col-5">
-                <h4>JV UNIVERSITY</h4>
+                <h4>Demo UNIVERSITY</h4>
                 <span style="font-size: 14px;">
-                  Subhash Chandra Bose Chowk<br>
+                    Subhash Chandra Bose Chowk<br>
                     Jhumri Telaiya - 825409<br>
                     Dist. Kodarma (Jharkhand), India<br>
                 </span>
@@ -48,7 +51,7 @@
                 <div class="col-3">
                     {{ admit_card.student.personal_details.full_name }}
                 </div>
-                 <div class="col-2">
+                <div class="col-2">
                     <b>Enroll.NO.: </b>
                 </div>
                 <div class="col-4">
@@ -57,12 +60,12 @@
             </div>
             <div class="row">
                 <div class="col-3">
-                    <b>Father's Name:  </b>
+                    <b>Father's Name: </b>
                 </div>
                 <div class="col-3">
                     {{ admit_card.student.personal_details.father_name }}
                 </div>
-                 <div class="col-2">
+                <div class="col-2">
                     <b>Roll No.: </b>
                 </div>
                 <div class="col-4">
@@ -72,13 +75,13 @@
 
             <div class="row">
 
-                 <div class="col-3">
-                    <b>Mother's Name:  </b>
+                <div class="col-3">
+                    <b>Mother's Name: </b>
                 </div>
                 <div class="col-3">
                     {{ admit_card.student.personal_details.mother_name }}
                 </div>
-                 <div class="col-2">
+                <div class="col-2">
                     <b>Course: </b>
                 </div>
                 <div class="col-4">
@@ -89,42 +92,46 @@
             <div class="row">
                 <div class="col-6"></div>
                 <div class="col-5 text-right">
-                    <img src={{ admit_card.student.personal_details.photo }} alt="" class="img-fluid m-2" style="height : 100px;">
+                    <img src={{ admit_card.student.personal_details.photo }} alt="" class="img-fluid m-2"
+                        style="height : 100px;">
                 </div>
             </div>
         </div>
         <div class="row mt-3">
-  <div class="col-12">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th scope="col">S.No</th>
-          <th scope="col">Paper Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for subject in subjects %}
-        <tr>
-          <td>{{ forloop.counter }}</td>
-          <td>[{{ subject.subject.subject_id }}]   {{ subject.subject.subject_name }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-</div>
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">S.No</th>
+                            <th scope="col">Paper Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for subject in subjects %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>[{{ subject.subject.subject_id }}] {{ subject.subject.subject_name }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-                <hr style="margin-top: calc((100vh - 500px) * 0.3);">
+        <hr style="margin-top: calc((100vh - 500px) * 0.3);">
 
-                <div >
-                  <p><b>Note:</b></p>
-                  <p style="margin-left: 50px;"><b>1. This Admit Card is provisional subject to the eligibility and verification of his/her Examination Form.</b></p>
-                  <p style="margin-left: 50px;"><b>2. In case of bycott and walkout, the candidate may be treated as absent in the concerned question paper and he/shall be liable to be punished according to the university rules.</b></p>
-                </div>
+        <div>
+            <p><b>Note:</b></p>
+            <p style="margin-left: 50px;"><b>1. This Admit Card is provisional subject to the eligibility and
+                    verification of his/her Examination Form.</b></p>
+            <p style="margin-left: 50px;"><b>2. In case of bycott and walkout, the candidate may be treated as absent in
+                    the concerned question paper and he/shall be liable to be punished according to the university
+                    rules.</b></p>
+        </div>
 
     </div>
 
 
-    </body>
-    </html>
+</body>
 
+</html>

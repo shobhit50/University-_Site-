@@ -16,238 +16,239 @@
 
 <body>
 
-{% include 'header.html' %}
+    {% include 'header.html' %}
 
-<div class="container">
-    <h1 class="mt-4 mb-4">Pending Registration</h1>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Father Name</th>
-            <th>Course</th>
-            <th>Date of Birth</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for registration in registrations %}
-            <tr>
-                <td>{{ registration.full_name }}</td>
-                <td>{{ registration.father_name }}</td>
-                <td>{{ registration.course }}</td>
-                <td>{{ registration.date_of_birth }}</td>
-                <td>
-                    <button type="button" class="btn btn-primary view-btn" data-toggle="modal"
+    <div class="container">
+        <h1 class="mt-4 mb-4">Pending Registration</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Father Name</th>
+                    <th>Course</th>
+                    <th>Date of Birth</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for registration in registrations %}
+                <tr>
+                    <td>{{ registration.full_name }}</td>
+                    <td>{{ registration.father_name }}</td>
+                    <td>{{ registration.course }}</td>
+                    <td>{{ registration.date_of_birth }}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary view-btn" data-toggle="modal"
                             data-target="#registration-modal" data-registration-id="{{ registration.id }}">View
+                        </button>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">No pending registrations.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal -->
+
+
+    <div class="modal fade" id="registration-modal" tabindex="-1" role="dialog"
+        aria-labelledby="registration-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="registration-modal-label">Application Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
                     </button>
-                </td>
-            </tr>
-        {% empty %}
-            <tr>
-                <td colspan="5">No pending registrations.</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-</div>
-
-<!-- Modal -->
-
-
-<div class="modal fade" id="registration-modal" tabindex="-1" role="dialog" aria-labelledby="registration-modal-label"
-     aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-center" id="registration-modal-label">Application Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-4 text-center">
-                        <img src="" alt="Registration Photo" class="img-fluid mb-2" id="registration-photo">
-                        <img src="" alt="Registration Signature" class="img-fluid" id="registration-signature">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row mb-2">
-                            <div class="col-sm-4">
-                                <p class="font-weight-bold mb-0">Session:</p>
-                            </div>
-                            <div class="col-sm-8">
-                                <p class="mb-0" id="registration-session"></p>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-sm-4">
-                                <p class="font-weight-bold mb-0">College Name:</p>
-                            </div>
-                            <div class="col-sm-8">
-                                <p class="mb-0">JV University</p>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-sm-4">
-                                <p class="font-weight-bold mb-0">Branch Name:</p>
-                            </div>
-                            <div class="col-sm-8">
-                                <p class="mb-0" id="registration-course"></p>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-sm-4">
-                                <p class="font-weight-bold mb-0">Date of Registration:</p>
-                            </div>
-                            <div class="col-sm-8">
-                                <p class="mb-0" id="registration-date-of-registration"></p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <hr>
-                <h6 class="text-center mb-4">Personal Details</h6>
-                {#                Revert From here#}
-                {#                ----#}
-                <table class="table table-bordered">
-                    <tbody>
-                    <tr>
-                        <th scope="row" class="font-weight-bold">Full Name:</th>
-                        <td id="registration-name"></td>
-                        <th scope="row" class="font-weight-bold">Father Name:</th>
-                        <td id="registration-father-name"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="font-weight-bold">Date of Birth:</th>
-                        <td id="registration-date-of-birth"></td>
-                        <th scope="row" class="font-weight-bold">Gender:</th>
-                        <td id="registration-gender"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="font-weight-bold">Phone Number:</th>
-                        <td id="registration-phone-number"></td>
-                        <th scope="row" class="font-weight-bold">Alternate Number:</th>
-                        <td id="registration-phone-number-2"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="font-weight-bold">Email:</th>
-                        <td id="registration-email" ></td>
-                        <th scope="row" class="font-weight-bold">State:</th>
-                        <td id="registration-state"></td>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <img src="" alt="Registration Photo" class="img-fluid mb-2" id="registration-photo">
+                            <img src="" alt="Registration Signature" class="img-fluid" id="registration-signature">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row mb-2">
+                                <div class="col-sm-4">
+                                    <p class="font-weight-bold mb-0">Session:</p>
+                                </div>
+                                <div class="col-sm-8">
+                                    <p class="mb-0" id="registration-session"></p>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-sm-4">
+                                    <p class="font-weight-bold mb-0">College Name:</p>
+                                </div>
+                                <div class="col-sm-8">
+                                    <p class="mb-0">Demo University</p>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-sm-4">
+                                    <p class="font-weight-bold mb-0">Branch Name:</p>
+                                </div>
+                                <div class="col-sm-8">
+                                    <p class="mb-0" id="registration-course"></p>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4">
+                                    <p class="font-weight-bold mb-0">Date of Registration:</p>
+                                </div>
+                                <div class="col-sm-8">
+                                    <p class="mb-0" id="registration-date-of-registration"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <h6 class="text-center mb-4">Personal Details</h6>
+                    {# Revert From here#}
+                    {# ----#}
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="font-weight-bold">Full Name:</th>
+                                <td id="registration-name"></td>
+                                <th scope="row" class="font-weight-bold">Father Name:</th>
+                                <td id="registration-father-name"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="font-weight-bold">Date of Birth:</th>
+                                <td id="registration-date-of-birth"></td>
+                                <th scope="row" class="font-weight-bold">Gender:</th>
+                                <td id="registration-gender"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="font-weight-bold">Phone Number:</th>
+                                <td id="registration-phone-number"></td>
+                                <th scope="row" class="font-weight-bold">Alternate Number:</th>
+                                <td id="registration-phone-number-2"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="font-weight-bold">Email:</th>
+                                <td id="registration-email"></td>
+                                <th scope="row" class="font-weight-bold">State:</th>
+                                <td id="registration-state"></td>
 
-                    </tr>
-                    <tr>
-                        <th scope="row" class="font-weight-bold">Country:</th>
-                        <td id="registration-country"></td>
-                        <th scope="row" class="font-weight-bold">Pincode:</th>
-                        <td id="registration-pincode"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="font-weight-bold">Address:</th>
-                        <td id="registration-address" colspan="3"></td>
-                    </tr>
-                    </tbody>
-                </table>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="font-weight-bold">Country:</th>
+                                <td id="registration-country"></td>
+                                <th scope="row" class="font-weight-bold">Pincode:</th>
+                                <td id="registration-pincode"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="font-weight-bold">Address:</th>
+                                <td id="registration-address" colspan="3"></td>
+                            </tr>
+                        </tbody>
+                    </table>
 
 
-                {#                ------#}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="approve-registration-btn">Approve</button>
+                    {# ------#}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="approve-registration-btn">Approve</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
 
-<script>
-    $(document).ready(function () {
-        // Handle clicking the "View" button
-        $('.view-btn').click(function () {
-            var registration_id = $(this).data('registration-id');
-            $.get("{% url 'get_registration_details' %}", {registration_id: registration_id}, function (data) {
-                // Set the title
-                $('#registration-modal-label').text('Application Details');
+    <script>
+        $(document).ready(function () {
+            // Handle clicking the "View" button
+            $('.view-btn').click(function () {
+                var registration_id = $(this).data('registration-id');
+                $.get("{% url 'get_registration_details' %}", { registration_id: registration_id }, function (data) {
+                    // Set the title
+                    $('#registration-modal-label').text('Application Details');
 
-                // Set the session, college name, course, and date of registration
-                $('#registration-session').text(data.session);
-                $('#registration-college-name').text('ABC College'); // Change this to the actual college name
-                $('#registration-course').text(data.course);
-                date_of_reg = new Date(data.created_at);
-                const options = {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric'
-                };
-                $('#registration-date-of-registration').text(date_of_reg.toLocaleDateString('en-US', options));
+                    // Set the session, college name, course, and date of registration
+                    $('#registration-session').text(data.session);
+                    $('#registration-college-name').text('ABC College'); // Change this to the actual college name
+                    $('#registration-course').text(data.course);
+                    date_of_reg = new Date(data.created_at);
+                    const options = {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    };
+                    $('#registration-date-of-registration').text(date_of_reg.toLocaleDateString('en-US', options));
 
-                // Set the photo and signature images
-                $('#registration-photo').attr('src', data.photo);
+                    // Set the photo and signature images
+                    $('#registration-photo').attr('src', data.photo);
 
-                $('#registration-signature').attr('src', data.signature);
+                    $('#registration-signature').attr('src', data.signature);
 
-                {#$('#registration-photo').attr('src', data.photo_url);#}
-                {#$('#registration-signature').html('<img src="' + data.signature_url + '" alt="Registration Signature" class="img-fluid" style="max-height: 200px;">');#}
+                    { #$('#registration-photo').attr('src', data.photo_url);# }
+                    { #$('#registration-signature').html('<img src="' + data.signature_url + '" alt="Registration Signature" class="img-fluid" style="max-height: 200px;">');# }
 
-                // Set the personal details
-                $('#registration-name').text(data.full_name);
-                $('#registration-father-name').text(data.father_name);
-                $('#registration-date-of-birth').text(data.date_of_birth);
-                $('#registration-gender').text(data.gender);
-                $('#registration-email').text(data.email);
-                $('#registration-phone-number').text(data.phone_number);
-                $('#registration-phone-number-2').text(data.alternate_mobile);
-                $('#registration-address').text(data.address);
-                $('#registration-city').text(data.city);
-                $('#registration-state').text(data.state);
-                $('#registration-country').text(data.country);
-                $('#registration-pincode').text(data.pincode);
-                $('#approve-registration-btn').data('registration-id', registration_id);
+                    // Set the personal details
+                    $('#registration-name').text(data.full_name);
+                    $('#registration-father-name').text(data.father_name);
+                    $('#registration-date-of-birth').text(data.date_of_birth);
+                    $('#registration-gender').text(data.gender);
+                    $('#registration-email').text(data.email);
+                    $('#registration-phone-number').text(data.phone_number);
+                    $('#registration-phone-number-2').text(data.alternate_mobile);
+                    $('#registration-address').text(data.address);
+                    $('#registration-city').text(data.city);
+                    $('#registration-state').text(data.state);
+                    $('#registration-country').text(data.country);
+                    $('#registration-pincode').text(data.pincode);
+                    $('#approve-registration-btn').data('registration-id', registration_id);
 
-                // Show the modal
-                $('#registration-modal').modal('show');
+                    // Show the modal
+                    $('#registration-modal').modal('show');
+                });
             });
-        });
 
-        // Handle clicking the "Approve" button
-        $('#approve-registration-btn').click(function () {
-            var registration_id = $(this).data('registration-id');
-            $.ajax({
-                url: '',
-                type: 'POST',
-                data: {
-                    'registration_id': registration_id,
-                    csrfmiddlewaretoken: '{{ csrf_token }}'
-                },
-                success: function (response) {
-                    // Show a success message with enrollment number and roll number
-                    var message = response.message;
-                    if (message) {
-                    location.reload();
+            // Handle clicking the "Approve" button
+            $('#approve-registration-btn').click(function () {
+                var registration_id = $(this).data('registration-id');
+                $.ajax({
+                    url: '',
+                    type: 'POST',
+                    data: {
+                        'registration_id': registration_id,
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function (response) {
+                        // Show a success message with enrollment number and roll number
+                        var message = response.message;
+                        if (message) {
+                            location.reload();
 <!--                        $('#registration-status').html('<div class="alert alert-success" role="alert">' + message + ' Click OK to reload the page.</div>');-->
-<!--                        // Wait for the user to click OK-->
-<!--                        $('#registration-status').find('.alert').on('closed.bs.alert', function () {-->
-<!--                            // Reload the page-->
-<!--                            location.reload();-->
-<!--                        });-->
+< !--                        // Wait for the user to click OK-->
+< !--$('#registration-status').find('.alert').on('closed.bs.alert', function () {
+                                -->
+< !--                            // Reload the page-->
+< !--location.reload(); -->
+< !--                        }); -->
                     }
-                },
+                    },
 
 
-                error: function (response) {
-                    // Show an error message
-                    $('#registration-status').html('<div class="alert alert-danger" role="alert">' + response.responseJSON.message + '</div>');
-                }
+                    error: function (response) {
+                        // Show an error message
+                        $('#registration-status').html('<div class="alert alert-danger" role="alert">' + response.responseJSON.message + '</div>');
+                    }
+                });
             });
         });
-    });
 
-</script>
+    </script>
 
 
-{% include 'footer.html' %}
+    {% include 'footer.html' %}
 
 </body>

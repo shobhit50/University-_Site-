@@ -12,7 +12,7 @@
                     </div>
 
                     <div class="logo-name ml-1">
-                        <div class="row ml-2">JV University</div>
+                        <div class="row ml-2">Demo University</div>
                         <div class="row sub-text">(Recognized by Govt. of India u/s2(f) of the U.G.C.Act,1956)
                         </div>
 
@@ -20,7 +20,7 @@
                 </div>
 
 
-                <div class="my-nav" >
+                <div class="my-nav">
                     <div class="menu" style="color: blue; ">
                         <ul>
                             <li><a href="{% url 'home' %}" style="color: #212529; padding: 5px;">Home</a></li>
@@ -29,11 +29,12 @@
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #212529; padding: 5px;">
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    style="color: #212529; padding: 5px;">
                                     Courses
                                 </a>
-                                <div class="dropdown-menu navbarDropdownMenuLink2" aria-labelledby="navbarDropdownMenuLink"
-                                     style="background-color: #212529; ">
+                                <div class="dropdown-menu navbarDropdownMenuLink2"
+                                    aria-labelledby="navbarDropdownMenuLink" style="background-color: #212529; ">
                                     <a href="{% url 'courses' cid=1 %}">IT AND ENGINEERING</a>
                                     <a href="{% url 'courses' cid=2 %}">COMMERCE AND MANAGEMENT</a>
                                     <a href="{% url 'courses' cid=3 %}">SOCIAL SCIENCE AND HUMANITY</a>
@@ -51,15 +52,16 @@
                             {% endcomment %}
 
                             <!--                            Student button -->
-                            <li><a href="{% url 'contact_us' %}" style="color: #212529; padding: 5px;">Contact Us</a></li>
+                            <li><a href="{% url 'contact_us' %}" style="color: #212529; padding: 5px;">Contact Us</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                   style="color: #212529; padding: 5px;">
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    style="color: #212529; padding: 5px;">
                                     Students
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
-                                     style="background-color: #212529;">
+                                    style="background-color: #212529;">
                                     <a class="dropdown-item" href="{% url 'get_admit_card' %}">Admit Card</a>
                                     <a class="dropdown-item" href="{% url 'results' %}">Results</a>
                                     <a class="dropdown-item" href="{% url 'enrollment_details' %}">Enrollment
@@ -70,7 +72,7 @@
                             {% if user.is_authenticated and user.is_staff %}
                             <li class="nav-item dropdown">
                                 <button class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Admin
                                 </button>
                                 <div class="dropdown-menu admin" aria-labelledby="navbarDropdownMenu">
@@ -89,59 +91,58 @@
         </div>
     </div>
 </header>
-<hr/>
+<hr />
 <style>
-  .dropdown-menu a:hover {
-    background-color: transparent !important;
-}
-.dropdown-menu {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-.dropdown-menu.admin {
-    background-color: #212529;
-}
-.main-nav {
-  background-color: white;
-}
+    .dropdown-menu a:hover {
+        background-color: transparent !important;
+    }
 
-.main-nav .logo {
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: #212529;
-}
+    .dropdown-menu {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-.main-nav .logo img {
-  margin-right: 10px;
-  max-width: 80%;
-}
-.main-nav .menu li a{
-    color: red;
-}
+    .dropdown-menu.admin {
+        background-color: #212529;
+    }
 
-.sub-text{
-font-size: 0.3em;
-width:150%;
-}
+    .main-nav {
+        background-color: white;
+    }
 
-.navbarDropdownMenuLink2 a
-{
-    white-space: nowrap;
-    padding: 5px;
-}
-.logo-name {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.menu-toggle::before{
-    color: #212529;
-}
+    .main-nav .logo {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: #212529;
+    }
 
+    .main-nav .logo img {
+        margin-right: 10px;
+        max-width: 80%;
+    }
 
+    .main-nav .menu li a {
+        color: red;
+    }
 
+    .sub-text {
+        font-size: 0.3em;
+        width: 150%;
+    }
 
+    .navbarDropdownMenuLink2 a {
+        white-space: nowrap;
+        padding: 5px;
+    }
 
+    .logo-name {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
+    .menu-toggle::before {
+        color: #212529;
+    }
 </style>
