@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'jvSite.wsgi.application'
 #             'NAME': 'newdatabase',
 #             'ENFORCE_SCHEMA': False,
 #             'CLIENT': {
-#                 'host': 'mongodb+srv://shobhit:uXw9CSZfLVwBnEwj@cluster0.snn3wbn.mongodb.net/Django?retryWrites=true&w=majority'
+#                 'host': 'mongodb+srv://.snn3wbn.mongodb.net/Django?retryWrites=true&w=majority'
 #             }  
 #         }
 # }
