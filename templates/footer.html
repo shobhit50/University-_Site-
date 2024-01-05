@@ -1,0 +1,70 @@
+{% load static %}
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                <div class="fotter-content">
+                    <h2>About Us</h2>
+                    <p>At JVU, we are dedicated to providing top-quality education and a well-rounded student
+                        experience. With a focus on critical thinking and intellectual curiosity, our academic programs
+                        and knowledgeable faculty equip students for success in their careers and lives. Explore more on
+                        our website.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                <div class="fotter-content">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="#"><i class="fal fa-chevron-double-right"></i>Home</a></li>
+                        <li><a href="#"><i class="fal fa-chevron-double-right"></i>About Us</a></li>
+                        <li><a href="#"><i class="fal fa-chevron-double-right"></i>Contact Us</a></li>
+                        <li><a href="#"><i class="fal fa-chevron-double-right"></i>Results</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                <div class="fotter-content">
+                    <h2>Address</h2>
+                    <ol>
+                        <li><i class="fal fa-map-marker-check"></i>
+                            Subhash Chandra Bose Chowk, Chitragupt Nagar,
+                            Jhumri Telaiya, Distt. Kodarma
+                            Jharkhand, Pincode-825409
+                        </li>
+
+                        <li><i class="fal fa-envelope"></i>jvuniversity001@gmail.com</li>
+                        <li><i class="fal fa-phone-volume"></i>+91 9286163190</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/script.js' %}"></script>
+
+<style>
+  .main-nav .menu li a{
+    color: red;
+}
+
+
+
+</style>
+
+<script>
+   function printContent() {
+      var printContents = document.querySelector('.printable-content').innerHTML;
+      var originalContents = document.body.innerHTML;
+      document.body.innerHTML = printContents;
+      window.print();
+      document.body.innerHTML = originalContents;
+}
+
+</script>

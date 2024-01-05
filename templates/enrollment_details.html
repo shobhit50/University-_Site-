@@ -1,0 +1,73 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Enrolment card</title>
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css">
+    <!-- <link rel="stylesheet" href="assets/css/responsive.css" /> -->
+</head>
+
+<body>
+    <main>
+      {% include 'header.html' %}
+{% if form %}
+ <!------------------------------------------- Form -------------------------------------------->
+
+<div class="container mb-4">
+
+  <div class="row">
+    <div class="col-md-6 mx-auto mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Enrollment Details</h3>
+            </div>
+            <div class="card-body">
+
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% elif student %}
+ <!------------------------------------------- Student data -------------------------------------------->
+        {% include 'enrollment_card.html' %}
+
+
+
+
+
+{% else %}
+    <h2>Error occured.</h2>
+{% endif %}
+
+
+
+
+
+
+
+
+
+        {% include 'footer.html' %}
+    </main>
+
+
+</body>
+
+
+</html>

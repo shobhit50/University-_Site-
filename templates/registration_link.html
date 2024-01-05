@@ -1,0 +1,71 @@
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Create Registration Links</title>
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css">
+    <!-- <link rel="stylesheet" href="assets/css/responsive.css" /> -->
+</head>
+
+<body>
+
+      {% include 'header.html' %}
+<main class = 'container'>
+
+  <h1 style="text-align:center; margin-top:50px;">Generate Registration Links</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="num_links">Number of Links</label>
+      <input type="number" class="form-control form-control-sm" id="num_links" name="num_links" min="1" max="100" value="1">
+    </div>
+    <button type="submit" class="btn btn-primary">Generate</button>
+  </form>
+
+<hr />
+<table class="table">
+  <thead>
+    <tr>
+        <th>S No.</th>
+      <th>Link</th>
+      <th>Copy Link</th>
+      <th>Expires</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for link in links %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+      <td>{{ link.reg_link }}</td>
+      <td><a href="#" onclick="copyToClipboard('{{ link.reg_link }}')">Copy Link</a></td>
+      <td>{{ link.expiry_date }}</td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<script>
+function copyToClipboard(text) {
+  var input = document.createElement('input');
+  input.setAttribute('value', text);
+  document.body.appendChild(input);
+  input.select();
+  document.execCommand('copy');
+  document.body.removeChild(input);
+  alert('Link copied to clipboard!');
+}
+</script>
+
+
+    </main>
+
+{% include 'footer.html' %}
+
+</body>
+
+
+</html>

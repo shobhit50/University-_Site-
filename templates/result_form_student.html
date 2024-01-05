@@ -1,0 +1,72 @@
+{% load static %}
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
+  <title>Student Result Form</title>
+<!--     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />-->
+</head>
+<body>
+
+
+
+{% comment %} ------------------------------------------------------------- {% endcomment %}
+
+<div class="container mt-5" style="max-width: 580px;">
+    <h2 class="text-center">Student Result Form</h2>
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            {% comment %} {{ form.errors }} {% endcomment %}
+            {% for error in form.non_field_errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+    {% endif %}
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group d-flex" style="align-items: center; flex-flow: wrap; gap: 16px;">
+        <div style="flex: 2 100px;">
+          {{ form.course.label_tag }}
+          {{ form.course }}
+        </div>
+        <div style="flex: 2 100px;">
+          {{ form.semester.label_tag }}
+          {{ form.semester }}
+        </div>
+      </div>
+      <div class="form-group">
+        {{ form.roll_number.label_tag }}
+        {{ form.roll_number }}
+      </div>
+      <div class="form-group">
+        {{ form.enrollment_number.label_tag }}
+        {{ form.enrollment_number }}
+      </div>
+      <div class="form-group">
+        {{ form.year.label_tag }}
+        {{ form.year }}
+      </div>
+      <button type="submit" class="btn btn-primary">View Results</button>
+    </form>
+  </div>
+  
+  {% comment %} <>------------------------------------ {% endcomment %}
+      
+      
+</body>
+
+
+<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css">
+<!--<script src="{% static 'assets/js/jquery-3.2.1.min.js' %}" ></script>-->
+<!--<script src="{% static 'assets/js/popper.min.js' %}"></script>-->
+<!--<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>-->
+<!--<script src="{% static 'assets/js/script.js' %}"></script>-->
+</html>

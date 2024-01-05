@@ -1,0 +1,150 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Create Registration Links</title>
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css">
+    <!-- <link rel="stylesheet" href="assets/css/responsive.css" /> -->
+</head>
+
+<body>
+
+      {% include 'header.html' %}
+
+<div class="container my-4">
+  <h1 class="text-center mb-4">Student Registration Form</h1>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset>
+      <legend>Application Details</legend>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          {{ form.course|as_crispy_field }}
+        </div>
+        <div class="col-md-6">
+          {{ form.session|as_crispy_field }}
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Personal Details</legend>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          {{ form.full_name|as_crispy_field }}
+        </div>
+        <div class="col-md-6">
+          {{ form.email|as_crispy_field }}
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          {{ form.phone_number|as_crispy_field }}
+        </div>
+        <div class="col-md-6">
+          {{ form.alternate_mobile|as_crispy_field }}
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          {{ form.father_name|as_crispy_field }}
+        </div>
+        <div class="col-md-6">
+          {{ form.mother_name|as_crispy_field }}
+        </div>
+
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          {{ form.date_of_birth|as_crispy_field }}
+        </div>
+        <div class="col-md-6">
+          {{ form.gender|as_crispy_field }}
+        </div>
+      </div>
+      <div class="row mb-3">
+
+        <div class="col-md-6">
+          {{ form.aadhar_number|as_crispy_field }}
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          {{ form.photo|as_crispy_field }}
+          <small class="form-text text-muted">Maximum size: 200KB.</small>
+             <span id="photo-error" style="color:red;"></span>
+        </div>
+        <div class="col-md-6">
+          {{ form.signature|as_crispy_field }}
+          <small class="form-text text-muted">Maximum size: 100KB.</small>
+             <span id="signature-error" style="color:red;"></span>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Address Details</legend>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          {{ form.address|as_crispy_field }}
+        </div>
+        <div class="col-md-6">
+          {{ form.pincode|as_crispy_field }}
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          {{ form.state|as_crispy_field }}
+        </div>
+        <div class="col-md-6">
+          {{ form.country|as_crispy_field }}
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary"> Register </button>
+    </div>
+  </form>
+</div>
+
+
+{% include 'footer.html' %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+document.querySelector('form').addEventListener('submit', function(event) {
+  const photoInput = document.getElementById('id_photo');
+  const signatureInput = document.getElementById('id_signature');
+  const photoSizeLimit = 200000;
+  const signatureSizeLimit = 100000;
+  let errors = false;
+
+  if (photoInput.files[0] && photoInput.files[0].size > photoSizeLimit) {
+    document.getElementById('photo-error').innerHTML = 'Photo file size exceeds 200KB limit';
+    errors = true;
+  } else {
+    document.getElementById('photo-error').innerHTML = '';
+  }
+
+  if (signatureInput.files[0] && signatureInput.files[0].size > signatureSizeLimit) {
+    document.getElementById('signature-error').innerHTML = 'Signature file size exceeds 100KB limit';
+    errors = true;
+  } else {
+    document.getElementById('signature-error').innerHTML = '';
+  }
+
+  if (errors) {
+    event.preventDefault();
+  }
+});
+</script>
+
+</body>
+
+
+</html>

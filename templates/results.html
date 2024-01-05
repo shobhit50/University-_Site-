@@ -1,0 +1,60 @@
+{% load static %}
+
+{% include 'header.html' %}
+
+
+{% if isResultForm %}
+    {% include 'result_form_student.html' %}
+{% else %}
+    {%if  result.course.course_type == 'external'  %}
+        {% include 'result-template.html' %}
+    {% else %}
+        {% include 'result-internal-template.html' %}
+    {% endif %}
+{% endif %}
+
+{% include 'footer.html' %}
+
+
+<style>
+     .dropdown-menu a:hover {
+    background-color: transparent !important;
+}
+.dropdown-menu {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.dropdown-menu.admin {
+    background-color: #212529;
+}
+.main-nav {
+  background-color: white;
+}
+
+.main-nav .logo {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #212529;
+}
+
+.main-nav .logo img {
+  margin-right: 10px;
+  max-width: 80%;
+}
+.main-nav .menu li a{
+    color: red;
+}
+
+.sub-text{
+font-size: 0.3em;
+width:150%;
+}
+.logo-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+</style>

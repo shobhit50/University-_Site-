@@ -1,0 +1,43 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
+  <title>Student Admit Form</title>
+<!--    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">-->
+<!--<link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}">-->
+<!--<link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />-->
+<!--<script src="{% static 'assets/js/jquery-3.2.1.min.js' %}" ></script>-->
+<!--<script src="{% static 'assets/js/popper.min.js' %}"></script>-->
+<!--<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>-->
+<!--<script src="{% static 'assets/js/script.js' %}"></script>-->
+</head>
+
+
+<body>
+    <div class="container mt-4 mb-4" style="max-width: 580px;">
+        <h2 class="text-center">Admit Card Form</h2>
+<!--       {% if form.errors %}-->
+<!--        <div class="alert alert-danger">-->
+<!--            {% comment %} {{ form.errors }} {% endcomment %}-->
+<!--            {% for error in form.non_field_errors %}-->
+<!--            <p>{{ error }}</p>-->
+<!--          {% endfor %}-->
+<!--        </div>-->
+<!--    {% endif %}-->
+        <form method="post">
+            {% csrf_token %}
+            {% crispy form %}
+
+<!--            <button type="submit" class="btn btn-primary mb-4">Submit</button>-->
+        </form>
+    </div>
+</body>
+
+
+
+
+</html>

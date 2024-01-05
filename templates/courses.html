@@ -1,0 +1,89 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>JV University</title>
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css">
+    <!-- <link rel="stylesheet" href="assets/css/responsive.css" /> -->
+</head>
+
+<body>
+    <main>
+      {% include 'header.html' %}
+
+        <section class="abt-01" style="margin-top:-20px;>
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="_head_01">
+                  <h2>Courses</h2>
+                  <p>Home<i class="fal fa-angle-double-right"></i><span>Courses</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!--  ************************* About Us Starts Here ************************** -->
+
+<div class="container">
+
+        {% include course_html %}
+
+        {% include 'courses/admission_procedure.html' %}
+
+</div>
+    </main>
+
+    {% include 'footer.html' %}
+
+
+<style>
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #424242;
+font-size: 15px;
+font-weight: normal;
+}
+
+h2 {
+    color: #6c8391;
+    font-family: 'Merriweather', serif;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0 0 8px;
+  }
+
+  p{
+  margin-bottom: 10px;
+  line-height: 28px;
+  }
+
+.wm-fancy-title{
+text-align:center;
+}
+#ContentPlaceHolder1_coursecategory {
+  font-family: 'Merriweather', serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  font-size: 26px;
+  box-sizing: border-box;
+  color: #b99663;
+}
+
+
+
+</style>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+{% extends "admin/base.html" %}
+
+{% block sidebar %}
+    {{ block.super }}
+    <div class="app-sidebar__module">
+        <h3 class="app-sidebar__heading">My Links</h3>
+        <ul class="app-sidebar__list">
+            <li class="app-sidebar__list-item">
+                <a href="{% url 'admin:my_page' %}" class="app-sidebar__list-link">My Page</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

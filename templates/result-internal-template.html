@@ -1,0 +1,103 @@
+{% load static %}
+<html>
+<head>
+    <title>{{ enrollment.roll_number }}</title>
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css">
+
+</head>
+<body>
+<center class="printable-content">
+    <TABLE align="center">
+        <tr align="center">
+            <td><img src="{% static 'assets/images/logo-01.png' %}" alt="jv university logo"
+                     style="max-width: 90px; max-width: 90px;">
+                <br />
+                <span class="logo" style="font-size: 37px;font-weight: bold;color: #212529;">
+                    JV UNIVERSITY
+                </span>
+
+                <font size="+1"><br>
+                Subhash Chandra Bose Chowk<br>
+                Jhumri Telaiya - 825409<br>
+                Dist. Kodarma (Jharkhand), India<br>
+                <br>
+                <B> {{ result.title }} - {{ result.year }}</B><BR>
+            </font>
+            </td>
+        </tr>
+    </TABLE>
+    <table border='1' width='800' bgcolor='#ffffff' align='center' cellpadding='1' cellspacing='1'>
+        <tr>
+            <td><b>Roll No.</b></td>
+            <td>{{ enrollment.roll_number }}</td>
+            <td><b>Enrolment No.</b></td>
+            <td> {{ enrollment.enrollment_number }}</td>
+        </tr>
+        <TR>
+            <td><b>Name</b></td>
+            <td>{{ enrollment.student.personal_details.full_name }}</td>
+            <td><b>Father's Name</b></td>
+            <td>{{ enrollment.student.personal_details.father_name }}</td>
+        </TR>
+        <tr>
+            <td><b>Course Name</b></td>
+            <td>{{ result.course.course_name }}</td>
+            <td><b> {{ result.course.duration_type|capfirst }} </b></td>
+            <td>{{ result.semester }}</td>
+        </tr>
+    </table>
+    <br>
+
+    <table border='1' width='800' bgcolor='#ffffff' align='center' cellpadding='0' cellspacing='0'>
+        <tr align='center'>
+            <th>Paper Code</th>
+            <th width='40%'>Paper Name</th>
+            <th>Maximum Marks</th>
+            <th>Minimum Marks</th>
+            <th>Obtained Marks</th>
+            <th>Remark</th>
+        </tr>
+        {% for marks in subjects %}
+        <tr>
+            <td>{{ marks.subject.subject_id }}</td>
+            <td>{{ marks.subject.subject.subject_name }}</td>
+            <td align='center'>{{ marks.subject.internal_max_marks }}</td>
+            <td align='center'>{{ marks.subject.internal_min_marks }}</td>
+            <td align='center'>{{ marks.internal_marks }}</td>
+            <td align='center'>{{ marks.remark }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <table border='1' width='800' bgcolor='#ffffff' align='center' cellpadding='1' cellspacing='1' class="mt-4">
+        <tr>
+            <th>Max. Marks</th>
+            <th>Obt. Marks</th>
+            <th>Percentage</th>
+            <th>Result</th>
+        </tr>
+        <tr align='center'>
+            <td>{{ result.max_marks }}</td>
+            <td>{{ result.obtained_marks }}</td>
+            <td>{{ result.percentage }}</td>
+            <td>{{ result.result_status }}</td>
+        </tr>
+    </table>
+
+    <br><br>
+    NC = Not Clear, P = Pass, PWG = Pass with Grace
+    <br><br>
+    Note: University does not own for the errors or omissions, if any, in this statement
+
+</center>
+<div>
+        <FORM>
+            <div class="form-group d-flex justify-content-center">
+                <button class="btn btn-primary" onclick="printContent()">Print</button>
+            </div>
+        </FORM>
+    </div>
+</body>
+</html>

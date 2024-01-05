@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    table {
+      width: 100%;
+      
+    }
+    th, td {
+      border: 1px solid black;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    h2 {
+      text-align: center;
+    }
+    .result-content{
+        width: 100%;
+        padding-right: 10%;
+        padding-left: 10%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .student-info tr {
+        width: 25%;
+    }
+
+    </style>
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" type="text/css">
+</head>
+
+
+<!-- <h1>Student Details</h1>
+
+<p>Name: {{ student.name }}</p>
+<p>Roll Number: {{ student.roll_number }}</p>
+
+<h2>Result Details</h2>
+
+<p>Total Marks: {{ result.total_marks }}</p>
+<p>Percentage: {{ result.percentage }}</p>
+
+<h3>Marks Details</h3>
+
+{% for mark in marks %}
+    <p>Subject: {{ mark.subject_name }}</p>
+    <p>Marks Obtained: {{ mark.marks_obtained }}</p>
+{% endfor %} -->
+
+
+<body>
+<div class="result-area bordered" style="height: 21cm; width: 29.7cm;">
+    <div class="result-content">
+        <img src="university_logo.png" alt="University Logo" style="display: block; margin: 0 auto;">
+        <div style="text-align: center;">
+            University Address<br>
+            Area<br>
+            Pin Code<br>
+            District, State, Country
+        </div>
+        <h2 style="text-align: center;">Result Title - YYYY</h2>
+        <table class="student-info">
+            <tr>
+                <td><strong>Roll Number</strong></td>
+                <td>123</td>
+                <td><strong>Enrollment No</strong></td>
+                <td>2100595</td>
+            </tr>
+            <tr>
+                <td><strong>Enrollment Number</strong></td>
+                <td>abc</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td width="50%">
+                    <table>
+                        <tr>
+                            <th colspan="2" style="text-align: center;">Subject</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Subject 1</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Subject 2</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Subject 3</td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="50%">
+                    <table>
+                        <tr>
+                            <th width="25%">Internal Marks (Theory)</th>
+                            <th width="25%">Internal Marks (Practical)</th>
+                            <th width="25%">External Marks (Theory)</th>
+                            <th width="25%">External Marks (Practical)</th>
+                        </tr>
+                        <tr>
+                            <td>MM</td>
+                            <td>MM</td>
+                            <td>MM</td>
+                            <td>MM</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Remarks</td>
+                            <td>Total Marks</td>
+                            <td>MO</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>
+
+
+{% load static %}
+
+
+<html>
+<head>
+    <title>211031010090</title>
+
+</head>
+<body>
+<div>
+    <TABLE align="center">
+        <tr align="center">
+            <td><img src="../logo.png" alt="Monad Logo"><font size="+1"><br>
+                NH 24, Delhi Hapur Road<br>
+                Village & Post Kastla, Kasmabad, P.O. Pilakhwa - 245101<br>
+                Dist. Hapur (U.P.), India<br>
+                <br>
+                <B> SUPPLEMENTARY/SPECIAL BACK EXAM- 2022</B><BR>
+            </font>
+            </td>
+        </tr>
+    </TABLE>
+
+    <table border='1' width='800' bgcolor='#ffffff' align='center' cellpadding='1' cellspacing='1'>
+        <tr>
+            <td><b>Roll No.</b></td>
+            <td>211031010090</td>
+            <td><b>Enrolment No.</b></td>
+            <td>2100595</td>
+
+        </tr>
+        <TR>
+            <td><b>Name</b></td>
+            <td>ABHISHEK PAL</td>
+            <td><b>Father's Name</b></td>
+            <td>NEM CHAND PAL</td>
+
+        </tr>
+        <tr>
+            <td><b>Course Name</b></td>
+            <td>Bachelor of Pharmacy</td>
+            <td><b>Semester</b></td>
+            <td>SEM 1</td>
+        </tr>
+    </table>
+    <br>
+    <table border='1' width='800' bgcolor='#ffffff' align='center' cellpadding='0' cellspacing='0'>
+        <tr align='center'>
+            <th rowspan='2'>Subject</th>
+            <th colspan='4'>Internal Marks</th>
+            <th colspan='4'>External Marks</th>
+            <th colspan='2'>Total Marks</th>
+            <th rowspan='2'>Remark</th>
+        </tr>
+        <tr align='center'>
+            <th colspan='2'>Theory</th>
+            <th colspan='2'>Practical</th>
+            <th colspan='2'>Theory</th>
+            <th colspan='2'>Practical</th>
+            <th>MM</th>
+            <th>MO</th>
+        </tr>
+
+        <tr>
+            <td>[BP-101T] Human Anatomy and Physiology-I</td>
+            <td align='center'>25</td>
+            <td align='center'>10</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>75</td>
+            <td align='center'>AB</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>100</td>
+            <td align='center'>10</td>
+            <td align='center'>F</td>
+        </tr>
+
+        <tr>
+            <td>[BP-102T] Pharmaceutical Analysis-I</td>
+            <td align='center'>25</td>
+            <td align='center'>10</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>75</td>
+            <td align='center'>AB</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>100</td>
+            <td align='center'>10</td>
+            <td align='center'>F</td>
+        </tr>
+
+        <tr>
+            <td>[BP-103T] Pharmaceutics-I</td>
+            <td align='center'>25</td>
+            <td align='center'>10</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>75</td>
+            <td align='center'>AB</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>100</td>
+            <td align='center'>10</td>
+            <td align='center'>F</td>
+        </tr>
+
+        <tr>
+            <td>[BP-104T] Pharmaceutical Inorganic Chemistry</td>
+            <td align='center'>25</td>
+            <td align='center'>10</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>75</td>
+            <td align='center'>AB</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>100</td>
+            <td align='center'>10</td>
+            <td align='center'>F</td>
+        </tr>
+
+        <tr>
+            <td>[BP-105T] Communication skills</td>
+            <td align='center'>15</td>
+            <td align='center'>5</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>35</td>
+            <td align='center'>AB</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>50</td>
+            <td align='center'>5</td>
+            <td align='center'>F</td>
+        </tr>
+
+        <tr>
+            <td>[BP-106T] Remedial Mathematics</td>
+            <td align='center'>15</td>
+            <td align='center'>5</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>35</td>
+            <td align='center'>AB</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>50</td>
+            <td align='center'>5</td>
+            <td align='center'>F</td>
+        </tr>
+
+        <tr>
+            <td>[BP107P] Human Anatomy and Physiology-Practical</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>15</td>
+            <td align='center'>14</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>35</td>
+            <td align='center'>24</td>
+            <td align='center'>50</td>
+            <td align='center'>38</td>
+            <td align='center'>P</td>
+        </tr>
+
+        <tr>
+            <td>[BP108P] Pharmaceutical Analysis I-Practical</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>15</td>
+            <td align='center'>13</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>35</td>
+            <td align='center'>24</td>
+            <td align='center'>50</td>
+            <td align='center'>37</td>
+            <td align='center'>P</td>
+        </tr>
+
+        <tr>
+            <td>[BP109P] Pharmaceutics I-Practical</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>15</td>
+            <td align='center'>10</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>35</td>
+            <td align='center'>23</td>
+            <td align='center'>50</td>
+            <td align='center'>33</td>
+            <td align='center'>P</td>
+        </tr>
+
+        <tr>
+            <td>[BP110P] Pharmaceutical Inorganic Chemistry-Practical</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>15</td>
+            <td align='center'>9</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>35</td>
+            <td align='center'>24</td>
+            <td align='center'>50</td>
+            <td align='center'>33</td>
+            <td align='center'>P</td>
+        </tr>
+
+        <tr>
+            <td>[BP111P] Communication skills-Practical</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>10</td>
+            <td align='center'>8</td>
+            <td align='center'>__</td>
+            <td align='center'>__</td>
+            <td align='center'>15</td>
+            <td align='center'>10</td>
+            <td align='center'>25</td>
+            <td align='center'>18</td>
+            <td align='center'>P</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+            <td align='center'></td>
+        </tr>
+
+
+    </table>
+    <br>
+    <table border='1' width='800' bgcolor='#ffffff' align='center' cellpadding='1' cellspacing='1'>
+        <tr>
+            <th>Max. Marks</th>
+            <th>Obt. Marks</th>
+            <th>Percentage</th>
+            <th>Result</th>
+        </tr>
+        <tr align='center'>
+            <td>725</td>
+            <td>209</td>
+            <td>29</td>
+            <td>FAIL</td>
+        </tr>
+    </table>
+    <br><br>
+    <center>NC = Not Clear, P = Pass, PWG = Pass with Grace
+        <center><br><br>
+            <center>Note: University does not own for the errors or omissions, if any, in this statement
+                <center>
+                    <center>
+</div>
+<FORM>
+    <INPUT TYPE='button' value='Print' onClick='window.print()'>
+</FORM>
+</center>
+</body>
+</html>

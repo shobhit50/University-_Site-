@@ -1,0 +1,112 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>JV University</title>
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css">
+    <!-- <link rel="stylesheet" href="assets/css/responsive.css" /> -->
+</head>
+
+<body>
+    <main>
+      {% include 'header.html' %}
+
+        <section class="abt-01" style="margin-top:-20px;>
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="_head_01">
+                  <h2>Contact Us</h2>
+                  <p>Home<i class="fal fa-angle-double-right"></i><span>Contact Us</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-0-b">
+          <div class="container">
+              <div class="row">
+                  <div class="main-card-contact d-flex">
+                      <div class="sup-card-contact">
+                          <div class="sup-content">
+                              <div class="head-content">
+                                  <h2>Leave A Message Here</h2>
+                                  <p>Leave a message here to connect with our dedicated school staff and get all your questions answered. Our team is committed to providing personalized support and guidance for a successful educational experience.</p>
+                              </div>
+  
+                              <div class="contact-title">
+                                  <h2>Contact Details</h2>
+                                  <ol>
+                                      <li><i class="far fa-map-marker-check"></i>JV University</li>
+                                      <li><i class="fal fa-mobile"></i>+91 9286163190 </li>
+                                      <li><i class="fal fa-envelope"></i>jvuniversity001@gmail.com</li>
+                                      <li><i class="fal fa-clock"></i>Mon - Sat 8.00 - 18.00.</li>
+                                  </ol>
+                              </div>
+                          </div>
+                      </div>
+  
+                      <div class="sup-card-contact-0a">
+                          <div class="contact-a1">
+                              <form method="post">
+  {% csrf_token %}
+  <div class="dived d-flex">
+    <div class="form-group">
+      <div class="form-sup">
+        <div class="cal-01">
+          <input type="text" name="name" id="id_name" class="form-control" placeholder="Enter Your Name">
+          <i class="fal fa-user-tie"></i>
+        </div>
+        <div class="cal-01">
+          <input type="text" name="phone" id="id_phone" class="form-control" placeholder="Phone Number">
+          <i class="fal fa-phone"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-sup">
+        <div class="cal-01">
+          <input type="email" name="email" id="id_email" class="form-control" placeholder="Enter Your Email">
+          <i class="fal fa-at"></i>
+        </div>
+        <div class="cal-01">
+          <input type="text" name="subject" id="id_subject" class="form-control" placeholder="Enter Your Subject">
+          <i class="fal fa-envelope-open-text"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="ca-ool">
+      <textarea name="message" id="id_message" cols="100" rows="6" class="form-control" placeholder="Message"></textarea>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary m-4">Submit</button>
+</form>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section class="mab-01">
+  <iframe style="width:100%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14632.603690771106!2d85.4456492!3d24.449350199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f372ae7b67b117%3A0x9ccbb0feb3a3e2ae!2sBekobar%2C%20Jharkhand%20825409!5e0!3m2!1sen!2sin!4v1647037531038!5m2!1sen!2sin" height="450" frameborder="0" allowfullscreen=""></iframe>
+</section>
+
+    </main>
+
+    {% include 'footer.html' %}
+    
+</body>
+
+</html>
