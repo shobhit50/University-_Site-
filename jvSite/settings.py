@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # new
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -96,28 +97,28 @@ WSGI_APPLICATION = 'jvSite.wsgi.application'
 
 # ----------------------------------for local----------------------------------
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'djongo',
-#         'NAME': 'JV_site',
-#         'ENFORCE_SCHEMA': False,
-#         'CLIENT': {
-#             'host': 'localhost:27017', 
-#         }
-#     }
-# }
-
-# ----------------------------------for render ----------------------------------  
 DATABASES = {
     'default': {
-            'ENGINE': 'djongo',
-            'NAME': 'JV_site',
-            'ENFORCE_SCHEMA': False,
-            'CLIENT': {
-                'host': f'mongodb+srv://shobhit:{os.environ["DB_PASS"]}@cluster0.snn3wbn.mongodb.net/Django?retryWrites=true&w=majority'
-            }  
+        'ENGINE': 'djongo',
+        'NAME': 'JV_site',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'localhost:27017', 
         }
-}    
+    }
+}
+
+# ----------------------------------for render ----------------------------------  
+# DATABASES = {
+#     'default': {
+#             'ENGINE': 'djongo',
+#             'NAME': 'JV_site',
+#             'ENFORCE_SCHEMA': False,
+#             'CLIENT': {
+#                 'host': f'mongodb+srv://shobhit:{os.environ["DB_PASS"]}@cluster0.snn3wbn.mongodb.net/Django?retryWrites=true&w=majority'
+#             }  
+#         }
+# }    
 
 
 
@@ -169,12 +170,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = (     
 os.path.join(BASE_DIR, 'static'), 
 ) 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
